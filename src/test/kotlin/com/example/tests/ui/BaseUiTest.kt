@@ -3,21 +3,20 @@ package com.example.tests.ui
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.openqa.selenium.WebDriver
-import java.util.concurrent.TimeUnit
-import com.example.tests.config.TestConfig
+import org.openqa.selenium.chrome.ChromeDriver
 
 open class BaseUiTest {
+
     protected lateinit var driver: WebDriver
 
     @BeforeEach
-    fun setUp() {
-        driver = DriverFactory.createDriver()
-        driver.manage().timeouts()//.implicitlyWait(TestConfig.IMPLICIT_WAIT, TimeUnit.SECONDS)
+    fun setUpDriver() {
+        driver = ChromeDriver()
         driver.manage().window().maximize()
     }
 
     @AfterEach
-    fun tearDown() {
+    fun tearDownDriver() {
         driver.quit()
     }
 }

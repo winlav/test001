@@ -1,5 +1,6 @@
 package com.example.tests.api
 
+import com.example.tests.shared.TestUser
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.assertEquals
 
@@ -12,7 +13,7 @@ class ArticleApiTest : BaseApiTest() {
 
         val response = client.createArticle(title, body)
             .then()
-            .statusCode(200) // Создание статьи в RealWorld API возвращает 200
+            .statusCode(200)
             .extract()
             .response()
 

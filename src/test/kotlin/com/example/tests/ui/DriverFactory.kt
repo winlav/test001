@@ -1,17 +1,15 @@
-package com.example.tests.ui
-
 import io.github.bonigarcia.wdm.WebDriverManager
-import org.openqa.selenium.WebDriver
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
-import com.example.tests.config.TestConfig
+import java.io.File
 
 object DriverFactory {
-    fun createDriver(): WebDriver {
-        WebDriverManager.chromedriver().setup()
+    fun createDriver(): ChromeDriver {
         val options = ChromeOptions()
-        if (TestConfig.HEADLESS) options.addArguments("--headless=new")
-        options.addArguments("--no-sandbox","--disable-dev-shm-usage")
+        options.addArguments("--headless=new", "--no-sandbox", "--disable-dev-shm-usage")
+
+        WebDriverManager.chromedriver().setup()
+
         return ChromeDriver(options)
     }
 }

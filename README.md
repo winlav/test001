@@ -1,17 +1,19 @@
-# kotlin-maven-ui-api-tests (refactor)
+# kotlin-maven-ui-api-tests
 
-Production-style Kotlin Maven test project that includes:
-- API tests (RestAssured)
-- UI tests (Selenium + WebDriverManager)
-- Page Object pattern
-- Test configuration via `test.properties`
-- Allure JUnit5 integration
-- Example of BaseTest separation and API client
+Тестовый проект на Kotlin с Maven в стиле production, который включает в себя:
 
-How to run:
-- Build & run tests:
-  mvn test
+- API-тесты (RestAssured)
+- UI-тесты (Selenium + WebDriverManager)
+- Паттерн Page Object
+- Настройку тестов через test.properties
+- Интеграцию с Allure и JUnit5
+- Пример разделения BaseTest и API-клиента
 
-Notes:
-- Configure `src/test/resources/test.properties` for BASE_URL and UI_URL.
-- Allure and TestContainers are included but require setup in CI as desired.
+Как запускать:
+- Собрать и запустить тесты:
+mvn test
+
+Примечания:
+- Настройте src/test/resources/test.properties для BASE_URL и UI_URL.
+- Allure и TestContainers включены, но требуют настройки в CI по необходимости.
+
