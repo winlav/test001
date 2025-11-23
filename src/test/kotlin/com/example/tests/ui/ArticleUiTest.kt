@@ -4,6 +4,7 @@ import LoginPage
 
 import com.example.tests.shared.TestUser
 import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
 
 class ArticleUiTest : BaseUiTest() {
@@ -14,17 +15,18 @@ class ArticleUiTest : BaseUiTest() {
     }
 
     @Test
+    @DisplayName("UI - Создание корректной статьи")
     fun `user can create article via ui`() {
-        // 1. UI login
+        // авторизуемся
         val loginPage = LoginPage(driver)
         loginPage.open()
         loginPage.login(TestUser.email, TestUser.password)
 
-        // 2. Редактор
+        // переход в редактор статьи
         val articlePage = ArticlePage(driver)
         articlePage.openNewArticleViaButton()
 
-        // 3. Создаём статью
+        // создаём статью
         articlePage.createArticle(
             title = "My Test Article",
             about = "About this article",
@@ -32,7 +34,7 @@ class ArticleUiTest : BaseUiTest() {
             tags = listOf("selenium", "test")
         )
 
-        // 4. Проверяем title
+        // Проверяем что создалась
         articlePage.assertArticleTitle("My Test Article")
     }
 }
